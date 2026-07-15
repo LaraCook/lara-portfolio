@@ -1,65 +1,164 @@
+"use client";
+
 import Image from "next/image";
+import { Box, Typography, Button } from "@mui/material";
+import Hero from "@/components/Hero/Hero";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        bgcolor: "grey.50",
+      }}
+    >
+      <Hero />
+      <Box
+        component="main"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          width: "100%",
+          maxWidth: "lg",
+          alignItems: "center",
+          justifyContent: "space-between",
+          py: 16,
+          px: 8,
+          bgcolor: "background.paper",
+          "@media (min-width: 640px)": {
+            alignItems: "flex-start",
+          },
+        }}
+      >
         <Image
-          className="dark:invert"
           src="/next.svg"
           alt="Next.js logo"
           width={100}
           height={20}
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 3,
+            textAlign: "center",
+            "@media (min-width: 640px)": {
+              alignItems: "flex-start",
+              textAlign: "left",
+            },
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              maxWidth: "xs",
+              fontWeight: 600,
+              lineHeight: 1.3,
+              letterSpacing: "-0.02em",
+              color: "text.primary",
+            }}
+          >
             To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              maxWidth: "md",
+              lineHeight: 1.75,
+              color: "text.secondary",
+            }}
+          >
             Looking for a starting point or more instructions? Head over to{" "}
-            <a
+            <Box
+              component="a"
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              sx={{
+                fontWeight: 500,
+                color: "text.primary",
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+              }}
             >
               Templates
-            </a>{" "}
+            </Box>{" "}
             or the{" "}
-            <a
+            <Box
+              component="a"
               href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              sx={{
+                fontWeight: 500,
+                color: "text.primary",
+                textDecoration: "none",
+                "&:hover": { textDecoration: "underline" },
+              }}
             >
               Learning
-            </a>{" "}
+            </Box>{" "}
             center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            "@media (min-width: 640px)": {
+              flexDirection: "row",
+            },
+          }}
+        >
+          <Button
+            variant="contained"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
+            sx={{
+              height: 48,
+              width: "100%",
+              borderRadius: "24px",
+              textTransform: "none",
+              fontWeight: 500,
+              "@media (min-width: 768px)": {
+                width: 158,
+              },
+            }}
           >
             <Image
-              className="dark:invert"
               src="/vercel.svg"
               alt="Vercel logomark"
               width={16}
               height={16}
+              style={{ marginRight: 8 }}
             />
             Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+          </Button>
+          <Button
+            variant="outlined"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
+            sx={{
+              height: 48,
+              width: "100%",
+              borderRadius: "24px",
+              textTransform: "none",
+              fontWeight: 500,
+              "@media (min-width: 768px)": {
+                width: 158,
+              },
+            }}
           >
             Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 }
