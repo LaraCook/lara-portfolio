@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lato, Londrina_Solid } from "next/font/google";
+import ThemeProviderWrapper from "./theme-provider";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lato = Lato({
+  variable: "--font-lato",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const londrinaSolid = Londrina_Solid({
+  variable: "--font-londrina-solid",
   subsets: ["latin"],
+  weight: ["400", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,9 +28,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lato.variable} ${londrinaSolid.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>
+        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+      </body>
     </html>
   );
 }
