@@ -1,20 +1,5 @@
 import { createTheme } from "@mui/material/styles";
 
-const primary = "#B6462F";
-const primaryLight = "#d97a68";
-const primaryDark = "#8a3422";
-
-const secondary = "#355E63";
-const secondaryLight = "#5a898e";
-const secondaryDark = "#234043";
-
-const accent = "#E7B347";
-const accentLight = "#f0d192";
-const accentDark = "#b58e36";
-
-const backgroundLight = "#F1E5CF";
-const backgroundDark = "#EDCA9A";
-
 declare module "@mui/material/styles" {
   interface Palette {
     accent: Palette["primary"];
@@ -28,23 +13,23 @@ declare module "@mui/material/styles" {
 const theme = createTheme({
   palette: {
     primary: {
-      main: primary,
-      light: primaryLight,
-      dark: primaryDark,
+      main: "#9E2A2B",
+      dark: "#6B1D1E",
+      light: "#C4514F",
     },
     secondary: {
-      main: secondary,
-      light: secondaryLight,
-      dark: secondaryDark,
+      main: "#355E63",
+      light: "#4A8B91",
+      dark: "#1E3A3D",
     },
     accent: {
-      main: accent,
-      light: accentLight,
-      dark: accentDark,
+      main: "#DF9F3E",
+      light: "#E8B96A",
+      dark: "#B8842F",
     },
     background: {
-      default: backgroundLight,
-      paper: backgroundDark,
+      default: "#F1E5CF",
+      paper: "#EDCA9A",
     },
   },
   typography: {
@@ -53,6 +38,7 @@ const theme = createTheme({
       fontFamily: "var(--font-londrina-solid), var(--font-lato), sans-serif",
       fontWeight: 500,
       letterSpacing: "0.05em",
+      fontSize: "10rem",
     },
     h2: {
       fontFamily: "var(--font-londrina-solid), var(--font-lato), sans-serif",
@@ -67,8 +53,15 @@ const theme = createTheme({
       fontFamily: "var(--font-londrina-solid), var(--font-lato), sans-serif",
     },
     h6: {
-      fontFamily: "var(--font-londrina-solid), var(--font-lato), sans-serif",
+      fontWeight: 900,
+      letterSpacing: "0.05em",
+      fontSize: "1.5rem",
     },
+    body1: {
+      fontWeight: 200,
+      letterSpacing: "0.2em",
+    },
+    body2: {},
   },
 });
 
