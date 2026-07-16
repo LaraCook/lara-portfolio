@@ -7,7 +7,7 @@ interface OrganicShape_1Props {
 }
 
 export default function OrganicShape_1({
-  color = "currentColor",
+  color = "#355E6B",
   className,
   style,
 }: OrganicShape_1Props) {

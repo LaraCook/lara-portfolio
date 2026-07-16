@@ -1,83 +1,95 @@
 "use client";
 
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import OrganicShape_1 from "../shapes/OrganicShape_1";
+import OrganicShape_2 from "../shapes/OrganicShape_2";
 
 export default function Hero() {
   return (
-    <Box
+    <Grid
+      container
       sx={{
-        display: "flex",
-        minHeight: { xs: "70vh", md: "78vh" },
+        minHeight: "80vh",
         alignItems: "center",
         bgcolor: "background.default",
         width: "100%",
-        position: "relative",
         overflow: "hidden",
         flexDirection: "column",
+        position: "relative",
         justifyContent: "center",
+        rowGap: { xs: 3, md: 5 },
+        pt: { xs: 8, md: 0 },
       }}
     >
-      <Stack
-        spacing={4}
+      <Box
         sx={{
-          width: "100%",
+          position: "absolute",
+          bottom: { xs: "-5%", md: "-30%" },
+          right: { xs: "-15%", md: "-10%" },
+          width: { xs: "50%", md: "35%" },
+          minWidth: 120,
         }}
       >
+        <OrganicShape_1 />
+      </Box>
+      <Box
+        sx={{
+          position: "absolute",
+          top: { xs: "-20%", md: "-80%" },
+          left: { xs: "-15%", md: "-10%" },
+          width: { xs: "50%", md: "35%" },
+          minWidth: 120,
+        }}
+      >
+        <OrganicShape_2 />
+      </Box>
+      <Grid sx={{ textAlign: { xs: "center", md: "left" } }}>
         <Typography
-          variant="h2"
+          variant="h1"
           sx={{
+            color: (theme) => theme.palette.primary.main,
             fontWeight: 700,
-            letterSpacing: "-0.04em",
             lineHeight: 1.05,
+            fontSize: { xs: "3.5rem", sm: "6rem", md: "10rem" },
+          }}
+        >
+          Lara Cook.
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{
             color: "primary.main",
+            fontWeight: 900,
+            textTransform: "uppercase",
+            fontSize: { xs: "1rem", md: "1.5rem" },
           }}
         >
-          Lara Cook
+          Software Engineer
         </Typography>
 
         <Typography
           variant="body1"
-          sx={{
-            maxWidth: 620,
-            color: "text.secondary",
-            lineHeight: 1.6,
-            fontWeight: 400,
-          }}
-        >
-          Software Engineer 
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{
-            maxWidth: 620,
-            color: "text.secondary",
-            lineHeight: 1.7,
-          }}
+          sx={{ fontSize: { xs: "0.85rem", md: "1rem" } }}
         >
           BUILDING SCALABLE ENTERPRISE SOFTWARE WITH REACT & .NET
         </Typography>
-
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              borderRadius: 999,
-              px: 4,
-              py: 1.5,
-              textTransform: "none",
-              fontWeight: 700,
-              bgcolor: "accent.main",
-              "&:hover": {
-                bgcolor: "accent.dark",
-              },
-            }}
-          >
-            See Projects
-          </Button>
-        </Stack>
-      </Stack>
-    </Box>
+      </Grid>
+      <Grid sx={{ textAlign: { xs: "center", md: "left" } }}>
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: (theme) => theme.palette.accent.main,
+            fontWeight: 700,
+            px: { xs: 4, md: 6 },
+            py: { xs: 1.2, md: 1.8 },
+            borderRadius: 2,
+            boxShadow: "none",
+          }}
+        >
+          See Projects
+        </Button>
+      </Grid>
+    </Grid>
   );
 }

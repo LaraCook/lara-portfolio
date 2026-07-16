@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Box, Typography, Button } from "@mui/material";
+import AppBar from "@/components/AppBar/AppBar";
 import Hero from "@/components/Hero/Hero";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         bgcolor: "grey.50",
       }}
     >
+      <AppBar />
       <Hero />
       <Box
         component="main"
@@ -24,7 +26,6 @@ export default function Home() {
           flexDirection: "column",
           flex: 1,
           width: "100%",
-          maxWidth: "lg",
           alignItems: "center",
           justifyContent: "space-between",
           py: 16,
