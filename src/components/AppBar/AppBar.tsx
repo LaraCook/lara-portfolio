@@ -11,7 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
-import FlowerShape from "../shapes/FlowerShape";
+import FlowerShape from "../../assets/svgs/FlowerShape";
 
 const navLinks = [
   { label: "About", href: "#about" },

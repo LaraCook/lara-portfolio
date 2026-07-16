@@ -42,6 +42,7 @@ const theme = createTheme({
     },
     h2: {
       fontFamily: "var(--font-londrina-solid), var(--font-lato), sans-serif",
+      textTransform: "uppercase",
     },
     h3: {
       fontFamily: "var(--font-londrina-solid), var(--font-lato), sans-serif",
@@ -61,7 +62,11 @@ const theme = createTheme({
       fontWeight: 200,
       letterSpacing: "0.2em",
     },
-    body2: {},
+    body2: {
+      fontSize: "1rem",
+      fontWeight: 500,
+      letterSpacing: "0em",
+    },
   },
 });
 

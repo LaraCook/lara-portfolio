@@ -1,10 +1,19 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
-import OrganicShape_1 from "../shapes/OrganicShape_1";
-import OrganicShape_2 from "../shapes/OrganicShape_2";
+import OrganicShape_1 from "../../assets/svgs/OrganicShape_1";
+import OrganicShape_2 from "../../assets/svgs/OrganicShape_2";
 
 export default function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Grid
       container
@@ -28,6 +37,8 @@ export default function Hero() {
           right: { xs: "-15%", md: "-10%" },
           width: { xs: "50%", md: "35%" },
           minWidth: 120,
+          transform: `translate(${scrollY * 0.05}px, ${-scrollY * 0.08}px)`,
+          transition: "transform 0.1s ease-out",
         }}
       >
         <OrganicShape_1 />
@@ -39,6 +50,8 @@ export default function Hero() {
           left: { xs: "-15%", md: "-10%" },
           width: { xs: "50%", md: "35%" },
           minWidth: 120,
+          transform: `translate(${-scrollY * 0.04}px, ${scrollY * 0.06}px)`,
+          transition: "transform 0.1s ease-out",
         }}
       >
         <OrganicShape_2 />
@@ -51,6 +64,8 @@ export default function Hero() {
             fontWeight: 700,
             lineHeight: 1.05,
             fontSize: { xs: "3.5rem", sm: "6rem", md: "10rem" },
+            transform: `translateY(${scrollY * -0.15}px)`,
+            transition: "transform 0.1s ease-out",
           }}
         >
           Lara Cook.
@@ -63,6 +78,8 @@ export default function Hero() {
             fontWeight: 900,
             textTransform: "uppercase",
             fontSize: { xs: "1rem", md: "1.5rem" },
+            transform: `translateY(${scrollY * -0.15}px)`,
+            transition: "transform 0.1s ease-out",
           }}
         >
           Software Engineer
@@ -70,7 +87,11 @@ export default function Hero() {
 
         <Typography
           variant="body1"
-          sx={{ fontSize: { xs: "0.85rem", md: "1rem" } }}
+          sx={{
+            fontSize: { xs: "0.85rem", md: "1rem" },
+            transform: `translateY(${scrollY * -0.15}px)`,
+            transition: "transform 0.1s ease-out",
+          }}
         >
           BUILDING SCALABLE ENTERPRISE SOFTWARE WITH REACT & .NET
         </Typography>
@@ -85,6 +106,8 @@ export default function Hero() {
             py: { xs: 1.2, md: 1.8 },
             borderRadius: 2,
             boxShadow: "none",
+            transform: `translateY(${scrollY * -0.15}px)`,
+            transition: "transform 0.1s ease-out",
           }}
         >
           See Projects
